@@ -1,1 +1,1 @@
-# Desafio-3-gerenciamento-de-enventos
+# Gerenciamento de eventos e ingressos
