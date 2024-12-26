@@ -5,4 +5,5 @@ import desafio3.ms_event_manager.model.Event;
 
 public interface EventService {
     Event createEvent(EventDTO eventDTO);
+    Event getEventById(String id);
 }
