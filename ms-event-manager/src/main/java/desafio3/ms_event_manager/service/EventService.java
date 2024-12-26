@@ -1,4 +1,8 @@
 package desafio3.ms_event_manager.service;
 
-public class EventService {
+import desafio3.ms_event_manager.dto.EventDTO;
+import desafio3.ms_event_manager.model.Event;
+
+public interface EventService {
+    Event createEvent(EventDTO eventDTO);
 }
