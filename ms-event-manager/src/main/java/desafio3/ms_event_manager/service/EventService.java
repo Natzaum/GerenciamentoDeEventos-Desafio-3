@@ -11,4 +11,5 @@ public interface EventService {
     List<Event> getAllEvents();
     List<Event> getAllEventsSortedByName();
     Event updateEvent(String id, EventDTO eventDTO);
+    void deleteEvent(String id);
 }

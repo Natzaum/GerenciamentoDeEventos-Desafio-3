@@ -59,4 +59,14 @@ public class EventServiceImpl implements EventService {
             throw new RuntimeException("Event not found");
         }
     }
+
+    @Override
+    public void deleteEvent(String id) {
+        Optional<Event> optionalEvent = eventRepository.findById(id);
+        if(optionalEvent.isPresent()) {
+            eventRepository.deleteById(id);
+        } else{
+            throw new RuntimeException("Event not found");
+        }
+    }
 }

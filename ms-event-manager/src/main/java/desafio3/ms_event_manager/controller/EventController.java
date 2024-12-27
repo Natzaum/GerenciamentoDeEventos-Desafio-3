@@ -54,4 +54,14 @@ public class EventController {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
+
+    @DeleteMapping("/delete-event/{id}")
+    public ResponseEntity<Event> deleteEvent(@PathVariable String id) {
+        try {
+            eventService.deleteEvent(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
