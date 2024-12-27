@@ -10,4 +10,5 @@ public interface EventService {
     Event getEventById(String id);
     List<Event> getAllEvents();
     List<Event> getAllEventsSortedByName();
+    Event updateEvent(String id, EventDTO eventDTO);
 }

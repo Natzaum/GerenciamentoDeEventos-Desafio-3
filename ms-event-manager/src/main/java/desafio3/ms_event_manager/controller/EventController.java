@@ -3,6 +3,7 @@ package desafio3.ms_event_manager.controller;
 import desafio3.ms_event_manager.dto.EventDTO;
 import desafio3.ms_event_manager.model.Event;
 import desafio3.ms_event_manager.service.EventService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,5 +43,15 @@ public class EventController {
     public ResponseEntity<List<Event>> getAllEventsSortedByName() {
         List<Event> events = eventService.getAllEventsSortedByName();
         return new ResponseEntity<>(events, HttpStatus.OK);
+    }
+
+    @PutMapping("/update-event/{id}")
+    public ResponseEntity<Event> updateEvent(@PathVariable String id, @RequestBody EventDTO eventDTO) {
+        try {
+            Event updatedEvent = eventService.updateEvent(id, eventDTO);
+            return new ResponseEntity<>(updatedEvent, HttpStatus.OK);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
     }
 }

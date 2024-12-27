@@ -27,9 +27,9 @@ public class EventServiceImpl implements EventService {
     @Override
     public Event getEventById(String id) {
         Optional<Event> event = eventRepository.findById(id);
-        if(event.isPresent()) {
+        if (event.isPresent()) {
             return event.get();
-        } else{
+        } else {
             throw new RuntimeException("Event not found");
         }
     }
@@ -44,5 +44,19 @@ public class EventServiceImpl implements EventService {
         List<Event> events = eventRepository.findAll();
         events.sort(Comparator.comparing(Event::getName));
         return events;
+    }
+
+    @Override
+    public Event updateEvent(String id, EventDTO eventDTO) {
+        Optional<Event> optionalEvent = eventRepository.findById(id);
+        if (optionalEvent.isPresent()) {
+            Event existingEvent = optionalEvent.get();
+            existingEvent.setName(eventDTO.getName());
+            existingEvent.setDescription(eventDTO.getDescription());
+            existingEvent.setDate(eventDTO.getDate());
+            return eventRepository.save(existingEvent);
+        } else {
+            throw new RuntimeException("Event not found");
+        }
     }
 }
