@@ -5,8 +5,10 @@ import desafio3.ms_event_manager.exception.EventNotFoundException;
 import desafio3.ms_event_manager.model.Event;
 import desafio3.ms_event_manager.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,5 +31,10 @@ public class EventServiceImpl implements EventService {
         } else{
             throw new RuntimeException("Event not found");
         }
+    }
+
+    @Override
+    public List<Event> getAllEvents() {
+        return eventRepository.findAll();
     }
 }
