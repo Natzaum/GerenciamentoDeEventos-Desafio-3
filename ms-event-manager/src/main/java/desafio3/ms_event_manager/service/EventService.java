@@ -9,4 +9,5 @@ public interface EventService {
     Event createEvent(EventDTO eventDTO);
     Event getEventById(String id);
     List<Event> getAllEvents();
+    List<Event> getAllEventsSortedByName();
 }

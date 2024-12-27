@@ -37,4 +37,10 @@ public class EventController {
         List<Event> events = eventService.getAllEvents();
         return new ResponseEntity<>(events, HttpStatus.OK);
     }
+
+    @GetMapping("/get-all-events/sorted")
+    public ResponseEntity<List<Event>> getAllEventsSortedByName() {
+        List<Event> events = eventService.getAllEventsSortedByName();
+        return new ResponseEntity<>(events, HttpStatus.OK);
+    }
 }
