@@ -3,20 +3,26 @@ package desafio3.ms_event_manager.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
+
 @Document(collection = "events")
 public class Event {
     @Id
     private String id;
     private String name;
     private String description;
-    private String date;
+    private LocalDateTime dateTime;
+    private String cep;
+    private String address;
 
     public Event() {}
 
-    public Event(String name, String description, String date) {
+    public Event(String name, String description, LocalDateTime dateTime, String cep, String address) {
         this.name = name;
         this.description = description;
-        this.date = date;
+        this.dateTime = dateTime;
+        this.cep = cep;
+        this.address = address;
     }
 
     public String getId() {
@@ -43,11 +49,27 @@ public class Event {
         this.description = description;
     }
 
-    public String getDate() {
-        return date;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public String getCep(){
+        return cep;
+    }
+
+    public void setCep(String cep){
+        this.cep = cep;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
