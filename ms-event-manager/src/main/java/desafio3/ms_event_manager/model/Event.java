@@ -13,16 +13,23 @@ public class Event {
     private String description;
     private LocalDateTime dateTime;
     private String cep;
-    private String address;
+    private String logradouro;
+    private String bairro;
+    private String cidade;
+    private String uf;
 
     public Event() {}
 
-    public Event(String name, String description, LocalDateTime dateTime, String cep, String address) {
+    public Event(String id, String name, String description, LocalDateTime dateTime, String cep, String logradouro, String bairro, String cidade, String uf) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.dateTime = dateTime;
         this.cep = cep;
-        this.address = address;
+        this.logradouro = logradouro;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.uf = uf;
     }
 
     public String getId() {
@@ -65,11 +72,35 @@ public class Event {
         this.cep = cep;
     }
 
-    public String getAddress() {
-        return address;
+    public String getLogradouro() {
+        return logradouro;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
     }
 }

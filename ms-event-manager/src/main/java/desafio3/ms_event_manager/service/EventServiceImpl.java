@@ -23,20 +23,26 @@ public class EventServiceImpl implements EventService {
     @Override
     public Event createEvent(EventDTO eventDTO) {
         Map<String, String> cepInfo = cepService.getCepInfo(eventDTO.getCep());
-        if(cepInfo.containsKey("erro")){
+        if (cepInfo == null || cepInfo.containsKey("erro")) {
             throw new RuntimeException("Invalid cep");
         }
 
-        String address = cepInfo.get("logradouro") + ", " +
-                cepInfo.get("bairro") + ", " +
-                cepInfo.get("cidade") + ", " +
-                cepInfo.get("uf");
+        System.out.println("CEP Info: " + cepInfo);
+
+        String logradouro = cepInfo.getOrDefault("logradouro", "Not Available");
+        String bairro = cepInfo.getOrDefault("bairro", "Not Available");
+        String cidade = cepInfo.getOrDefault("localidade", "Not Available");
+        String uf = cepInfo.getOrDefault("uf", "Not Available");
 
         Event event = new Event();
         event.setName(eventDTO.getName());
+        event.setDescription(eventDTO.getDescription());
         event.setDateTime(eventDTO.getDateTime());
         event.setCep(eventDTO.getCep());
-        event.setAddress(address);
+        event.setLogradouro(logradouro);
+        event.setBairro(bairro);
+        event.setCidade(cidade);
+        event.setUf(uf);
 
         return eventRepository.save(event);
     }
