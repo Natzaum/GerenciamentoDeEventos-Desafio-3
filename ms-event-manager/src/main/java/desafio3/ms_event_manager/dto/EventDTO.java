@@ -8,16 +8,22 @@ public class EventDTO {
     private String description;
     private LocalDateTime dateTime;
     private String cep;
-    private String address;
+    private String logradouro;
+    private String bairro;
+    private String cidade;
+    private String UF;
 
     public EventDTO() {}
 
-    public EventDTO(String name, String description, LocalDateTime dateTime, String cep, String address) {
+    public EventDTO(String name, String description, LocalDateTime dateTime, String cep, String logradouro, String bairro, String cidade, String UF) {
         this.name = name;
         this.description = description;
         this.dateTime = dateTime;
         this.cep = cep;
-        this.address = address;
+        this.logradouro = logradouro;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.UF = UF;
     }
 
     public String getName() {
@@ -52,11 +58,35 @@ public class EventDTO {
         this.cep = cep;
     }
 
-    public String getAddress() {
-        return address;
+    public String getLogradouro() {
+        return logradouro;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getUF() {
+        return UF;
+    }
+
+    public void setUF(String UF) {
+        this.UF = UF;
     }
 }

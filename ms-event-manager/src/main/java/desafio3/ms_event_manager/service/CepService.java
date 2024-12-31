@@ -7,12 +7,13 @@ import java.util.Map;
 
 @Service
 public class CepService {
-    public Map<String, String> getCepInfo(String cep){
+    public Map<String, String> getCepInfo(String cep) {
         String normalizedCep = cep.replaceAll("\\D", "");
-        if(normalizedCep.length() != 8){
+        if (normalizedCep.length() != 8) {
             throw new RuntimeException("Invalid CEP format");
         }
-        String url = "https://viacep.com.br/ws/" + cep + "/json";
+
+        String url = "https://viacep.com.br/ws/" + normalizedCep + "/json/";
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject(url, Map.class);
     }
