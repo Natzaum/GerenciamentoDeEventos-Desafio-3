@@ -36,6 +36,7 @@ public class EventServiceImpl implements EventService {
 
         Event event = new Event();
         event.setName(eventDTO.getName());
+        event.setDescription(eventDTO.getDescription());
         event.setDateTime(eventDTO.getDateTime());
         event.setCep(eventDTO.getCep());
         event.setLogradouro(logradouro);
