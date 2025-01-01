@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>desafio3</groupId>
-	<artifactId>ms-event-manager</artifactId>
+	<artifactId>ms-ticket-manager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ms-event-manager</name>
+	<name>ms-ticket-manager</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -67,6 +67,11 @@
 			<groupId>org.springframework.amqp</groupId>
 			<artifactId>spring-rabbit-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>desafio3</groupId>
+			<artifactId>ms-event-manager</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jetbrains</groupId>
