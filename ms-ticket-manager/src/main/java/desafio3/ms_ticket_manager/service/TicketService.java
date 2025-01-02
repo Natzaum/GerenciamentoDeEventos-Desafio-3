@@ -9,4 +9,5 @@ public interface TicketService {
     Ticket createTicket(TicketDTO ticketDTO);
     Ticket getTicketById(String id);
     List<Ticket> getTicketByCpf(String cpf);
+    void cancelTicket(String ticketId);
 }
