@@ -33,8 +33,8 @@ public class TicketServiceImpl implements TicketService {
         ticket.setCustomerMail(ticketDTO.getCustomerMail());
         ticket.setEventId(ticketDTO.getEventId());
         ticket.setEventName(ticketDTO.getEventName());
-        ticket.setBRLamount(ticketDTO.getBRLamount());
-        ticket.setUSDamount(ticketDTO.getUSDamount());
+        ticket.setBrlamount(ticketDTO.getBrlamount());
+        ticket.setUsdamount(ticketDTO.getUsdamount());
         ticket.setStatus("pending");
 
         Ticket savedTicket = ticketRepository.save(ticket);

@@ -6,20 +6,20 @@ public class TicketDTO {
     private String customerMail;
     private String eventId;
     private String eventName;
-    private String BRLamount;
-    private String USDamount;
+    private String brlamount;
+    private String usdamount;
 
     public TicketDTO() {
     }
 
-    public TicketDTO(String customerName, String cpf, String customerMail, String eventId, String eventName, String BRLamount, String USDamount) {
+    public TicketDTO(String customerName, String cpf, String customerMail, String eventId, String eventName, String brlamount, String usdamount) {
         this.customerName = customerName;
         this.cpf = cpf;
         this.customerMail = customerMail;
         this.eventId = eventId;
         this.eventName = eventName;
-        this.BRLamount = BRLamount;
-        this.USDamount = USDamount;
+        this.brlamount = brlamount;
+        this.usdamount = usdamount;
     }
 
     public String getCustomerName() {
@@ -62,19 +62,19 @@ public class TicketDTO {
         this.eventName = eventName;
     }
 
-    public String getBRLamount() {
-        return BRLamount;
+    public String getBrlamount() {
+        return brlamount;
     }
 
-    public void setBRLamount(String BRLamount) {
-        this.BRLamount = BRLamount;
+    public void setBrlamount(String brlamount) {
+        this.brlamount = brlamount;
     }
 
-    public String getUSDamount() {
-        return USDamount;
+    public String getUsdamount() {
+        return usdamount;
     }
 
-    public void setUSDamount(String USDamount) {
-        this.USDamount = USDamount;
+    public void setUsdamount(String usdamount) {
+        this.usdamount = usdamount;
     }
 }
