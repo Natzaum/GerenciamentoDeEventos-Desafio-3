@@ -12,14 +12,14 @@ public class Ticket {
     private String customerMail;
     private String eventId;
     private String eventName;
-    private String BRLamount;
-    private String USDamount;
+    private double BRLamount;
+    private double USDamount;
     private String status;
 
     public Ticket() {
     }
 
-    public Ticket(String ticketId, String customerName, String cpf, String customerMail, String eventId, String eventName, String BRLamount, String USDamount, String status) {
+    public Ticket(String ticketId, String customerName, String cpf, String customerMail, String eventId, String eventName, double BRLamount, double USDamount, String status) {
         this.ticketId = ticketId;
         this.customerName = customerName;
         this.cpf = cpf;
@@ -79,19 +79,19 @@ public class Ticket {
         this.eventName = eventName;
     }
 
-    public String getBRLamount() {
+    public double getBRLamount() {
         return BRLamount;
     }
 
-    public void setBRLamount(String BRLamount) {
+    public void setBRLamount(double BRLamount) {
         this.BRLamount = BRLamount;
     }
 
-    public String getUSDamount() {
+    public double getUSDamount() {
         return USDamount;
     }
 
-    public void setUSDamount(String USDamount) {
+    public void setUSDamount(double USDamount) {
         this.USDamount = USDamount;
     }
 
