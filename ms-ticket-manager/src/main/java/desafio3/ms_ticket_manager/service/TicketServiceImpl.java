@@ -85,6 +85,11 @@ public class TicketServiceImpl implements TicketService {
         }
     }
 
+    @Override
+    public List<Ticket> getTicketsByEventId(String eventId) {
+        return ticketRepository.findByEventId(eventId);
+    }
+
     private String generateTicketId() {
         return String.valueOf(ticketRepository.count() + 1);
     }

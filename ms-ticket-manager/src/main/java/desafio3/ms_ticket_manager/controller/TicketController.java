@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -47,6 +48,17 @@ public class TicketController {
     public ResponseEntity<String> cancelTicketsByCpf(@PathVariable("cpf") String cpf) {
         ticketService.cancelTicketsByCpf(cpf);
         return ResponseEntity.ok("Tickets for CPF " + cpf + " have been cancelled");
+    }
+
+    @GetMapping("/check-tickets-by-event/{eventId}")
+    public ResponseEntity<List<Ticket>> getTicketsByEventId(@PathVariable("eventId") String eventId) {
+        List<Ticket> tickets = ticketService.getTicketsByEventId(eventId);
+
+        if (tickets.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.emptyList());
+        }
+
+        return ResponseEntity.ok(tickets);
     }
 
 }
