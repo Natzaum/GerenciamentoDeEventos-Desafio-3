@@ -72,6 +72,19 @@ public class TicketServiceImpl implements TicketService {
         ticketRepository.save(ticket);
     }
 
+    @Override
+    public void cancelTicketsByCpf(String cpf) {
+        List<Ticket> tickets = ticketRepository.findByCpf(cpf);
+        if (tickets.isEmpty()) {
+            throw new RuntimeException("No tickets found for CPF: " + cpf);
+        }
+
+        for (Ticket ticket : tickets) {
+            ticket.setStatus("cancelled");
+            ticketRepository.save(ticket);
+        }
+    }
+
     private String generateTicketId() {
         return String.valueOf(ticketRepository.count() + 1);
     }
