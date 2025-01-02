@@ -6,8 +6,11 @@ import desafio3.ms_ticket_manager.model.Ticket;
 import desafio3.ms_ticket_manager.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 @Service
-public class TicketService {
+public class TicketServiceImpl implements TicketService {
     @Autowired
     private TicketRepository ticketRepository;
 
@@ -17,6 +20,7 @@ public class TicketService {
     @Autowired
     private EmailSender emailSender;
 
+    @Override
     public Ticket createTicket(TicketDTO ticketDTO) {
         if (eventClient.getEventById(ticketDTO.getEventId()) == null) {
             throw new RuntimeException("Event not found");
@@ -38,6 +42,21 @@ public class TicketService {
         emailSender.sendEmailConfirmation(savedTicket);
 
         return savedTicket;
+    }
+
+    @Override
+    public Ticket getTicketById(String ticketId) {
+        return ticketRepository.findById(ticketId)
+                .orElseThrow(() -> new RuntimeException("Ticket not found with ID: " + ticketId));
+    }
+
+    @Override
+    public List<Ticket> getTicketByCpf(String cpf) {
+        List<Ticket> tickets = ticketRepository.findByCpf(cpf);
+        if (tickets.isEmpty()) {
+            throw new RuntimeException("No tickets found for CPF: " + cpf);
+        }
+        return tickets;
     }
 
     private String generateTicketId() {
