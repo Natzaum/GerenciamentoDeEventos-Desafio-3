@@ -42,4 +42,11 @@ public class TicketController {
         ticketService.cancelTicket(ticketId);
         return ResponseEntity.ok("Ticket with ID " + ticketId + " has been cancelled");
     }
+
+    @DeleteMapping("/cancel-ticket-cpf/{cpf}")
+    public ResponseEntity<String> cancelTicketsByCpf(@PathVariable("cpf") String cpf) {
+        ticketService.cancelTicketsByCpf(cpf);
+        return ResponseEntity.ok("Tickets for CPF " + cpf + " have been cancelled");
+    }
+
 }

@@ -10,4 +10,5 @@ public interface TicketService {
     Ticket getTicketById(String id);
     List<Ticket> getTicketByCpf(String cpf);
     void cancelTicket(String ticketId);
+    void cancelTicketsByCpf(String cpf);
 }
