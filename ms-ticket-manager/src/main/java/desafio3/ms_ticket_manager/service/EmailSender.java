@@ -17,8 +17,8 @@ public class EmailSender {
                 ticket.getCustomerName(),
                 ticket.getEventName(),
                 ticket.getTicketId(),
-                ticket.getBRLamount(),
-                ticket.getUSDamount()
+                ticket.getBrlamount(),
+                ticket.getUsdamount()
         );
 
         rabbitTemplate.convertAndSend("emailQueue", message);

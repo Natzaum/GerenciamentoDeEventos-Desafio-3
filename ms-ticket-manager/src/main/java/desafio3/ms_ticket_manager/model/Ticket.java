@@ -12,22 +12,22 @@ public class Ticket {
     private String customerMail;
     private String eventId;
     private String eventName;
-    private String BRLamount;
-    private String USDamount;
+    private String brlamount;
+    private String usdamount;
     private String status;
 
     public Ticket() {
     }
 
-    public Ticket(String ticketId, String customerName, String cpf, String customerMail, String eventId, String eventName, String BRLamount, String USDamount, String status) {
+    public Ticket(String ticketId, String customerName, String cpf, String customerMail, String eventId, String eventName, String brlamount, String usdamount, String status) {
         this.ticketId = ticketId;
         this.customerName = customerName;
         this.cpf = cpf;
         this.customerMail = customerMail;
         this.eventId = eventId;
         this.eventName = eventName;
-        this.BRLamount = BRLamount;
-        this.USDamount = USDamount;
+        this.brlamount = brlamount;
+        this.usdamount = usdamount;
         this.status = status;
     }
 
@@ -79,20 +79,20 @@ public class Ticket {
         this.eventName = eventName;
     }
 
-    public String getBRLamount() {
-        return BRLamount;
+    public String getBrlamount() {
+        return brlamount;
     }
 
-    public void setBRLamount(String BRLamount) {
-        this.BRLamount = BRLamount;
+    public void setBrlamount(String brlamount) {
+        this.brlamount = brlamount;
     }
 
-    public String getUSDamount() {
-        return USDamount;
+    public String getUsdamount() {
+        return usdamount;
     }
 
-    public void setUSDamount(String USDamount) {
-        this.USDamount = USDamount;
+    public void setUsdamount(String usdamount) {
+        this.usdamount = usdamount;
     }
 
     public String getStatus() {
