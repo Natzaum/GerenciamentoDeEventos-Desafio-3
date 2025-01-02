@@ -59,6 +59,19 @@ public class TicketServiceImpl implements TicketService {
         return tickets;
     }
 
+    @Override
+    public void cancelTicket(String ticketId) {
+        Ticket ticket = ticketRepository.findById(ticketId)
+                .orElseThrow(() -> new RuntimeException("Ticket not found with ID: " + ticketId));
+
+        if ("cancelled".equals(ticket.getStatus())) {
+            throw new RuntimeException("Ticket is already cancelled");
+        }
+
+        ticket.setStatus("cancelled");
+        ticketRepository.save(ticket);
+    }
+
     private String generateTicketId() {
         return String.valueOf(ticketRepository.count() + 1);
     }
