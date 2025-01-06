@@ -12,3 +12,18 @@ services:
       - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
     depends_on:
       - db_event
+
+  ms-ticket-manager:
+    image: nata-cezer/ms-ticket-manager:latest
+    ports:
+      - "8081:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_DATASOURCE_URL=jdbc:mongodb://db_ticket:27017/db_ticket
+      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+      - SPRING_RABBITMQ_ADDRESSES=${SPRING_RABBITMQ_ADDRESSES}
+      - SPRING_RABBITMQ_QUEUE=${SPRING_RABBITMQ_QUEUE}
+    depends_on:
+      - db_ticket
+      - rabbitmq
