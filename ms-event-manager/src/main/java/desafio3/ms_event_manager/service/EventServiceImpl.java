@@ -1,5 +1,6 @@
 package desafio3.ms_event_manager.service;
 
+import desafio3.ms_event_manager.Exception.EventNotFoundException;
 import desafio3.ms_event_manager.dto.EventDTO;
 import desafio3.ms_event_manager.model.Event;
 import desafio3.ms_event_manager.repository.EventRepository;
@@ -53,7 +54,7 @@ public class EventServiceImpl implements EventService {
         if (event.isPresent()) {
             return event.get();
         } else {
-            throw new RuntimeException("Event not found");
+            throw new EventNotFoundException("Event with id: " + id + " not found.");
         }
     }
 
