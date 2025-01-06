@@ -1,5 +1,6 @@
 package desafio3.ms_ticket_manager;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -9,7 +10,12 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class MsTicketManagerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MsTicketManagerApplication.class, args);
-	}
+		Dotenv dotenv = Dotenv.configure().load();
 
+		dotenv.entries().forEach(entry ->
+				System.setProperty(entry.getKey(), entry.getValue())
+		);
+
+		SpringApplication.run(desafio3.ms_event_manager.MsEventManagerApplication.class, args);
+	}
 }
