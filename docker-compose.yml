@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  ms-event-manager:
+    image: nata-cezer/ms-event-manager:latest
+    ports:
+      - "8080:8080"
