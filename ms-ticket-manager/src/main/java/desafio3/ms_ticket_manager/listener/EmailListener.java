@@ -8,6 +8,6 @@ public class EmailListener {
 
     @RabbitListener(queues = "emailQueue")
     public void processEmailQueue(String message) {
-        System.out.println("Sending email with the following message:\n" + message);
+        System.out.println(message);
     }
 }
