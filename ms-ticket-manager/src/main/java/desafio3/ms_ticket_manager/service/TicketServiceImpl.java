@@ -1,7 +1,7 @@
 package desafio3.ms_ticket_manager.service;
 
-import desafio3.ms_event_manager.model.Event;
 import desafio3.ms_ticket_manager.client.EventClient;
+import desafio3.ms_ticket_manager.dto.EventResponseDTO;
 import desafio3.ms_ticket_manager.dto.TicketDTO;
 import desafio3.ms_ticket_manager.model.Ticket;
 import desafio3.ms_ticket_manager.repository.TicketRepository;
@@ -23,7 +23,7 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public Ticket createTicket(TicketDTO ticketDTO) {
-        Event event = eventClient.getEventById(ticketDTO.getEventId());
+        EventResponseDTO event = eventClient.getEventById(ticketDTO.getEventId());
         if (event == null) {
             throw new RuntimeException("Event not found");
         }
@@ -53,7 +53,7 @@ public class TicketServiceImpl implements TicketService {
                 .orElseThrow(() -> new RuntimeException("Ticket not found with ID: " + ticketId));
 
         if (ticket.getEvent() == null) {
-            Event event = eventClient.getEventById(ticket.getEventId());
+            EventResponseDTO event = eventClient.getEventById(ticket.getEventId());
             ticket.setEvent(event);
         }
 

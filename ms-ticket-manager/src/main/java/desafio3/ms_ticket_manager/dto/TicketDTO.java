@@ -1,21 +1,19 @@
 package desafio3.ms_ticket_manager.dto;
 
-import desafio3.ms_event_manager.model.Event;
-
 public class TicketDTO {
     private String customerName;
     private String cpf;
     private String customerMail;
     private String eventId;
     private String eventName;
-    private Event event;
+    private EventResponseDTO event;
     private String brlamount;
     private String usdamount;
 
     public TicketDTO() {
     }
 
-    public TicketDTO(String customerName, String cpf, String customerMail, String eventId, String eventName, Event event, String brlamount, String usdamount) {
+    public TicketDTO(String customerName, String cpf, String customerMail, String eventId, String eventName, EventResponseDTO event, String brlamount, String usdamount) {
         this.customerName = customerName;
         this.cpf = cpf;
         this.customerMail = customerMail;
@@ -66,11 +64,11 @@ public class TicketDTO {
         this.eventName = eventName;
     }
 
-    public Event getEvent() {
+    public EventResponseDTO getEvent() {
         return event;
     }
 
-    public void setEvent(Event event) {
+    public void setEvent(EventResponseDTO event) {
         this.event = event;
     }
 
