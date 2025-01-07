@@ -38,14 +38,23 @@ The application is designed to demonstrate a distributed architecture using micr
 Manages the lifecycle of events, including creation and retrieval. Events are stored in a MongoDB database.
 
 **Endpoints:**
-- `POST /events`: Create a new event.
-- `GET /events/{id}`: Retrieve an event by ID.
+- `POST /events/create-event`: Create a new event.
+- `PUT /events/update-event/{id}`: Update an event.
+- `DELETE /events/delete-event/{id}`: Delete an event.
+- `GET /events/get-event/{id}`: Retrieve an event by ID.
+- `GET /events/get-all-events`: Get all events.
+- `GET /events/get-all-events/sorted`: Get all events sorted by name.
 
 ### 2. `ms-ticket-manager`
 Handles ticket creation and validates events by communicating with `ms-event-manager`. After creating a ticket, a confirmation email is sent via RabbitMQ.
 
 **Endpoints:**
-- `POST /tickets`: Create a new ticket.
+- `POST /tickets/create-ticket`: Create a new ticket.
+- `DELETE /tickets/cancel-ticket/{id}`: Delete a ticket by ID.
+- `DELETE /tickets/cancel-ticket-cpf/{cpf}`: Delete a ticket by CPF.
+- `GET /tickets/get-ticket/{id}`: Get ticket by ID.
+- `GET /tickets/get-ticket-by-cpf/{cpf}`: Get ticket by CPF.
+- `GET /tickets/check-tickets-by-event/{id}`
 
 **Validation Flow:**
 1. `ms-ticket-manager` sends a request to `ms-event-manager` to validate the existence of an event.
