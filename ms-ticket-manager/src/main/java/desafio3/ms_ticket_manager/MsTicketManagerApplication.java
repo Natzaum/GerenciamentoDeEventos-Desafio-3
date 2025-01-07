@@ -16,6 +16,7 @@ public class MsTicketManagerApplication {
 				System.setProperty(entry.getKey(), entry.getValue())
 		);
 
-		SpringApplication.run(desafio3.ms_event_manager.MsEventManagerApplication.class, args);
+		SpringApplication.run(MsTicketManagerApplication.class, args);
+
 	}
 }

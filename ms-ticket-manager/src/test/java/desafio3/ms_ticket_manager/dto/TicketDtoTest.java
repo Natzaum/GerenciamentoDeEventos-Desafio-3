@@ -9,11 +9,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TicketDtoTest {
 
     private TicketDTO ticketDTO;
-    private Event event;
 
     @BeforeEach
     public void setUp() {
-        event = new Event();
+        EventResponseDTO event = new EventResponseDTO();
         event.setId("1");
         event.setName("Concert");
 
@@ -49,16 +48,5 @@ public class TicketDtoTest {
         assertEquals("Theater", ticketDTO.getEventName());
         assertEquals("150", ticketDTO.getBrlamount());
         assertEquals("30", ticketDTO.getUsdamount());
-    }
-
-    @Test
-    public void testSetEvent() {
-        Event newEvent = new Event();
-        newEvent.setId("2");
-        newEvent.setName("Workshop");
-
-        ticketDTO.setEvent(newEvent);
-        assertEquals("2", ticketDTO.getEvent().getId());
-        assertEquals("Workshop", ticketDTO.getEvent().getName());
     }
 }
