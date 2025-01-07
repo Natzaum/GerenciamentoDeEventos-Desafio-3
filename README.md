@@ -131,7 +131,7 @@ SPRING_RABBITMQ_QUEUE=ms.ticket
 ### 1. Create Event
 **Request:**
 ```http
-POST /events
+POST /events/create-event
 Content-Type: application/json
 {
   "name": "Concert",
@@ -164,7 +164,7 @@ Content-Type: application/json
 ### 2. Create Ticket
 **Request:**
 ```http
-POST /tickets
+POST /tickets/create-ticket
 Content-Type: application/json
 {
   "eventId": "123",
@@ -187,16 +187,3 @@ Content-Type: application/json
   "status": "pending"
 }
 ```
-
----
-
-## Future Enhancements
-- Add authentication and authorization with Spring Security.
-- Implement monitoring with tools like Prometheus and Grafana.
-- Use Kubernetes for deployment and scaling.
-
----
-
-## License
-This project is licensed under the MIT License.
-
