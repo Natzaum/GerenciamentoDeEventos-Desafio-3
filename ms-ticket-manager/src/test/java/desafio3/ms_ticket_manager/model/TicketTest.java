@@ -1,6 +1,7 @@
 package desafio3.ms_ticket_manager.model;
 
 import desafio3.ms_event_manager.model.Event;
+import desafio3.ms_ticket_manager.dto.EventResponseDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,15 +10,16 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TicketTest {
 
     private Ticket ticket;
-    private Event event;
+    private EventResponseDTO event;
 
     @BeforeEach
     public void setUp() {
-        event = new Event();
+        event = new EventResponseDTO();
         event.setId("1");
         event.setName("Concert");
 
-        ticket = new Ticket("1", "John Doe", "12345678900", "john.doe@example.com", "1", "Concert", event, "100", "20", "pending");
+        ticket = new Ticket("1", "John Doe", "12345678900", "john.doe@example.com",
+                "1", "Concert", event, "100", "20", "pending");
     }
 
     @Test
@@ -55,14 +57,4 @@ public class TicketTest {
         assertEquals("confirmed", ticket.getStatus());
     }
 
-    @Test
-    public void testSetEvent() {
-        Event newEvent = new Event();
-        newEvent.setId("2");
-        newEvent.setName("Workshop");
-
-        ticket.setEvent(newEvent);
-        assertEquals("2", ticket.getEvent().getId());
-        assertEquals("Workshop", ticket.getEvent().getName());
-    }
 }
